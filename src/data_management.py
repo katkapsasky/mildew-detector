@@ -6,6 +6,7 @@ import base64
 from datetime import datetime
 import joblib
 
+
 def download_dataframe_as_csv(df):
     """
     Function to download dataframe as csv file
@@ -21,6 +22,7 @@ def download_dataframe_as_csv(df):
         f'target="_blank">Download Report</a>'
     )
     return href
+
 
 def load_pkl_file(file_path):
     """
