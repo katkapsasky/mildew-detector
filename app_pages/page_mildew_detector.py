@@ -13,7 +13,7 @@ from src.machine_learning.predictive_analysis import (
                                                     )
 
 
-def page_malaria_detector_body():
+def page_mildew_detector_body():
     st.info(
         f"* The client is interested in predicting if a cherry leaf is healthy "
         f"or is infected with powdery mildew."
