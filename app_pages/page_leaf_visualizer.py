@@ -58,3 +58,23 @@ def page_leaf_visualizer_body():
                       label_to_display=label_to_display,
                       nrows=8, ncols=3, figsize=(10,25))
       st.write("---")
+
+
+def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
+  sns.set_style("white")
+  labels = os.listdir(dir_path)
+
+  # Subsets the class we are interested to display
+  if label_to_display in labels:
+
+    # Checks if montage space is greater than subset size
+    # How many images are in that folder
+    images_list = os.listdir(dir_path+'/'+ label_to_display)
+    if nrows * ncols < len(images_list):
+      img_idx = random.sample(images_list, nrows * ncols)
+    else:
+      print(
+          f"Decrease nrows or ncols to create your montage. \n"
+          f"There are {len(images_list)} in your subset. "
+          f"You requested a montage with {nrows * ncols} spaces")
+      return
