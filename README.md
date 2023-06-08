@@ -9,10 +9,14 @@ The Cherry Leaf Mildew Detector can save time in this process as it is capable o
 
 View the live version of the app [here](https://YOUR_APP_NAME.herokuapp.com/)
 
-## Dataset Content
-* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
-* The dataset contains +4 thousand images taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product.
 
+## Dataset Content
+
+* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). 
+
+* It contains 4208 images of cherry leaves, split into two folders:
+  - 2104 healthy cherry leaf images
+  - 2104 powdery mildew infected cherry leaf images
 
 
 ## Business Requirements
