@@ -18,3 +18,9 @@ def download_dataframe_as_csv(df):
         f'target="_blank">Download Report</a>'
     )
     return href
+
+def load_pkl_file(file_path):
+    """
+    Function to load pkl file
+    """
+    return joblib.load(filename=file_path)
