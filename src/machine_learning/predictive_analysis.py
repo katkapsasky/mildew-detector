@@ -7,6 +7,7 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 from src.data_management import load_pkl_file
 
+
 def plot_predictions_probabilities(pred_proba, pred_class):
     """
     Function to plot prediction probability results
@@ -31,6 +32,7 @@ def plot_predictions_probabilities(pred_proba, pred_class):
             width=600, height=300,template='seaborn')
     st.plotly_chart(fig)
 
+
 def resize_input_image(img, version):  
     """
     Function to reshape image to average image size
@@ -41,3 +43,23 @@ def resize_input_image(img, version):
 
     return my_image
 
+
+def load_model_and_predict(my_image, version):
+    """
+    Function to load and perform ML prediction over live images
+    """
+
+    model = load_model(f"outputs/{version}/mildew_detector_model.h5")
+
+    pred_proba = model.predict(my_image)[0,0]
+
+    target_map = {v: k for k, v in {'Healthy': 0, 'Infected': 1}.items()}
+    pred_class =  target_map[pred_proba < 0.5]  
+    if pred_class == target_map[1]: pred_proba = 1 - pred_proba
+
+
+    st.write(
+        f"The predictive analysis indicates the sample leaf is "
+        f"**{pred_class.lower()}**")
+    
+    return pred_proba, pred_class
