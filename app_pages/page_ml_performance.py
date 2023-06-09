@@ -9,7 +9,6 @@ def page_ml_performance_metrics():
     version = 'v1'
 
     st.write("### Label Distribution Across Train, Validation and Test Sets")
-
     labels_distribution = plt.imread(
         f"outputs/{version}/labels_distribution.png"
     )
