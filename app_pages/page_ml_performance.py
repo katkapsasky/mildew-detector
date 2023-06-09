@@ -10,8 +10,16 @@ def page_ml_performance_metrics():
 
     st.write("### Label Distribution Across Train, Validation and Test Sets")
 
-    labels_distribution = plt.imread(f"outputs/{version}/labels_distribution.png")
-    st.image(labels_distribution, caption='Labels Distribution on Train, Validation and Test Sets')
+    labels_distribution = plt.imread(
+        f"outputs/{version}/labels_distribution.png"
+    )
+    st.image(labels_distribution, caption='Labels Distribution - Bar Chart')
+
+    labels_distribution = plt.imread(
+        f"outputs/{version}/labels_distribution_pie.png"
+    )
+    st.image(labels_distribution, caption='Labels Distribution - Pie Chart')
+
     st.write("---")
 
     st.write("### Model Confusion Matrix")
@@ -21,7 +29,7 @@ def page_ml_performance_metrics():
 
     st.write("### Model History")
     col1, col2 = st.beta_columns(2)
-    with col1: 
+    with col1:
         model_acc = plt.imread(f"outputs/{version}/model_training_acc.png")
         st.image(model_acc, caption='Model Training Accuracy')
     with col2:
@@ -30,4 +38,5 @@ def page_ml_performance_metrics():
     st.write("---")
 
     st.write("### Generalised Performance on Test Set")
-    st.dataframe(pd.DataFrame(load_test_evaluation(version), index=['Loss', 'Accuracy']))
+    st.dataframe(pd.DataFrame(load_test_evaluation(
+        version), index=['Loss', 'Accuracy']))
