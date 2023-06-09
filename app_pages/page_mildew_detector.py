@@ -15,8 +15,8 @@ from src.machine_learning.predictive_analysis import (
 
 def page_mildew_detector_body():
     st.info(
-        f"* The client is interested in predicting if a cherry leaf is healthy "
-        f"or is infected with powdery mildew."
+        f"* The client is interested in predicting if a cherry leaf is "
+        f"healthy or is infected with powdery mildew."
     )
 
     st.write(
@@ -40,7 +40,7 @@ def page_mildew_detector_body():
             st.info(f"Cherry Leaf Image: **{image.name}**")
             img_array = np.array(img_pil)
             st.image(
-                img_pil, caption=f"Image Size: {img_array.shape[1]}px width x {img_array.shape[0]}px height")
+                img_pil, caption=f"Image Size: {img_array.shape[1]}px width x {img_array.shape[0]}px height")  # noqa
 
             version = 'v1'
             resized_img = resize_input_image(img=img_pil, version=version)
@@ -48,8 +48,10 @@ def page_mildew_detector_body():
                 resized_img, version=version)
             plot_predictions_probabilities(pred_proba, pred_class)
 
-            df_report = df_report.append({"Name": image.name, 'Result': pred_class},
-                                         ignore_index=True)
+            df_report = df_report.append(
+                {"Name": image.name, 'Result': pred_class},
+                ignore_index=True
+            )
 
         if not df_report.empty:
             st.success("Analysis Report")

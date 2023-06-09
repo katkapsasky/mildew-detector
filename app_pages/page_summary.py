@@ -11,8 +11,7 @@ def page_summary_body():
 
     st.write(
         f"* For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/katkapsasky/mildew-detector/blob/main/README.md).")
-    
+        f"[Project README file](https://github.com/katkapsasky/mildew-detector/blob/main/README.md).")  # noqa
 
     st.success(
         f"The project has 2 business requirements:\n"
@@ -21,4 +20,4 @@ def page_summary_body():
         f"contains powdery mildew..\n"
         f"* 2 - The client is interested in predicting if a cherry leaf is "
         f"healthy or contains powdery mildew. "
-        )
+    )
