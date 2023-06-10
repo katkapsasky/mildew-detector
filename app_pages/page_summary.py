@@ -7,7 +7,7 @@ def page_summary_body():
     st.write("### Quick Project Summary")
 
     st.info(
-        f"**General Information**"
+        f"**General Information**\n"
         f"Powdery mildew is a fungal disease of the foliage and "
         f"stems of a plant, where a superficial fungal growth covers the "
         f"surface of the plant.\n"
@@ -19,7 +19,7 @@ def page_summary_body():
         f"production times, and fruit that has little flavor.")
 
     st.info(
-        f"**Dataset Content**"
+        f"**Dataset Content**\n"
         f"The dataset, provided by the client, contains 4208 images of cherry "
         f"leaves; 2104 healthy and 2104 powdery mildew infected leaves. ")
 
