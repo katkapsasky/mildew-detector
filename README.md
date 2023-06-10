@@ -3,11 +3,12 @@
 The Cherry Leaf Mildew Detector is a Machine Learning image analysis system to predict the presence of
 powdery mildew on cherry tree leaves. It has been developed for Farmy & Foods, an agricultural company who are facing challenges with their cherry plantations presenting powdery mildew - a fungal disease that affects a wide range of plants.
 
-View the live version of the app [here](https://YOUR_APP_NAME.herokuapp.com/)
+View the live version of the app [here](https://kk-mildew-detector.herokuapp.com/)
 
 ## Dataset Content
 
 The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves) and contains 4208 images of cherry leaves, split into two folders:
+
 - 2104 healthy cherry leaf images
 - 2104 powdery mildew infected cherry leaf images
 
@@ -45,7 +46,7 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ### Heroku
 
-- The App live link is: https://YOUR_APP_NAME.herokuapp.com/
+- The App live link is: https://kk-mildew-detector.herokuapp.com/
 - Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 - The project was deployed to Heroku using the following steps.
 
@@ -55,6 +56,20 @@ To save time in this process, the IT team suggested an ML system that detects in
 4. Select the branch you want to deploy, then click Deploy Branch.
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+
+### Forking on GitHub
+
+To make a copy of the GitHub repository to use on your own account, you can fork the repository with
+the following steps.:
+
+- On the Github repository [page](https://github.com/katkapsasky/mildew-detector), go to the 'Fork' button on the top right of the page, and click to create a copy of the repository on your own GitHub account.
+
+### Cloning
+
+- On the page for the [repository](https://github.com/katkapsasky/mildew-detector), click the 'Code' button
+- To clone the repository using HTTPS, copy the HTTPS URL provided there
+- Open your CLI application of choice and change the current working directory to the location where you want the cloned directory to be created.
+- Type git clone, and then paste the previously copied URL to create the clone
 
 ## Main Data Analysis and Machine Learning Libraries
 
