@@ -34,6 +34,8 @@ Creating an image montage provides further visualisation of healthy and infected
 Although images in the montage and the average variability and
 difference of the two images do present visual distinctions - infected leaves have more white stripes across the center of the leaf whereas healthy ones are a more opaque green - when plotting the difference image of the two we notice no patterns where we could intuitively differentiate one from another.
 
+![difference between average healthy and infected images](documentation/dashboard/diff_avg_variability_images.png)
+
 ### **Hypothesis 2**
 
 We suspect that an image classification model can be used to predict whether a leaf in a given image is healthy or infected with powdery mildew.
@@ -41,6 +43,8 @@ We suspect that an image classification model can be used to predict whether a l
 ### **Hypothesis 2 - Validation**
 
 By training the image classification model using multi-class classification and a portion of the dataset we are able to predict the health of one or more leaf images at a time with 93% accuracy on the tested data set.
+
+![model evaluation on test set](documentation/dashboard/diff_avg_variability_images.png)
 
 ### **Hypothesis 3**
 
@@ -76,10 +80,38 @@ Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels all
 - Heuristics: The current diagnostic requires a manual process inspection which takes around 30 minutes per tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. This process is costly due to the time taken in manual inspection and leaves room to produce inaccurate diagnostics due to human errors.
 - The training data to fit the model was provided by the client, Farmy & Foods and is available on [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). This dataset contains 4208 images, 2104 healthy leaf images and 2104 infected ones divided into their respective subfolders.
 
+## Model Creation
+
 ## Dashboard Design
 
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+### Project Summary
+
+![project summary](documentation/dashboard/dashboard_summary.png)
+
+### Leaf Visualizer
+
+![leaf visualizer](documentation/dashboard/dashboard_visualizer.png)
+![average variability of images](documentation/dashboard/avg_variability_images.png)
+![difference in average images](documentation/dashboard/diff_avg_variability_images.png)
+![image montage - healthy](documentation/dashboard/img_montage_healthy.png)
+![image montage - infected](documentation/dashboard/img_montage_infected.png)
+
+### Mildew Detector
+
+![mildew detector](documentation/dashboard/dashboard_detector.png)
+![mildew detector analysis](documentation/dashboard/mildew_detector_analysis.png)
+
+### Project Hypotheses
+
+![hypotheses](documentation/dashboard/dashboard_hypotheses.png)
+
+### ML Performance Metrics
+
+![ml performance metrics](documentation/dashboard/dashboard_metrics.png)
+![pie chart](documentation/dashboard/pie_chart.png)
+![confusion matrix](documentation/dashboard/confusion_matrix.png)
+![learning curves](documentation/dashboard/learning_curves.png)
+![test set evaluation](documentation/dashboard/test_set_evaluation.png)
 
 ## Bugs
 
@@ -145,25 +177,20 @@ To make a copy of the GitHub repository to use on your own account, you can fork
 
 ### Languages
 
-- [Python](https://www.python.org/) for the app development 
+- [Python](https://www.python.org/) for the app development
 - [Markdown](https://www.markdownguide.org/) for documentation, Jupyter notebooks and dashboard
 
 ## Credits
 
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
-
 ### Content
 
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
+- [Cherry Leaves Dataset](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves) - used for visualization, model training and prediction
 
-### Media
+### Code
 
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
+- [Code Institute Walkthrough Project 1](https://codeinstitute.net/) - used for the Data Visualization, Data Preparation and Modelling and Evaluation notebooks as well as the Streamlit dashboard
 
 ## Acknowledgements
 
-- Thank the people that provided support throughout this project.
+- My mentor, Mo Shami, for his continuous support and feedback on the project.
+- The Code Institute Slack community, particularly the tutors and students contributing to the #project-portfolio-5-predictive-analytics channel.
