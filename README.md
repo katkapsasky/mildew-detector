@@ -18,8 +18,8 @@ The cherry plantation crop from Farmy & Foods is facing a challenge where their 
 
 To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
 
-1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
-2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+1. The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+2. The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
 ## Hypothesis and how to validate?
 
@@ -81,29 +81,37 @@ Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels all
 - List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
 - Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
 
-## Unfixed Bugs
+## Bugs
 
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+### Fixed Bugs
+
+### Unfixed Bugs
+
+There are no remaining unfixed bugs I am aware of.
 
 ## Deployment
 
 ### Heroku
 
-- The App live link is: https://kk-mildew-detector.herokuapp.com/
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-- The project was deployed to Heroku using the following steps.
+The App live link is: https://kk-mildew-detector.herokuapp.com/
 
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+The project was deployed to Heroku using the following steps.
+
+1. Log in to your Heroku account in the Command Line Interface(CLI) of your chosen IDE
+2. Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes)
+3. Visit the Heroku webpage and log in to your account
+4. Click the "New" button to create a new app and name it
+5. Navigate to the Deploy tab and select GitHub as the deployment method
+6. Search for your repository name and click Search
+7. Once it is found, click Connect
+8. Select the branch you want to deploy, then click Deploy Branch
+9. The deployment process should happen smoothly if all deployment files are fully functional.
+10. Once completed click the button Open App on the top of the page to access your App
+11. If the slug size is too large then add large files not required for the App to the .slugignore file
 
 ### Forking on GitHub
 
-To make a copy of the GitHub repository to use on your own account, you can fork the repository with
-the following steps.:
+To make a copy of the GitHub repository to use on your own account, you can fork the repository with the following steps:
 
 - On the Github repository [page](https://github.com/katkapsasky/mildew-detector), go to the 'Fork' button on the top right of the page, and click to create a copy of the repository on your own GitHub account.
 
@@ -114,9 +122,31 @@ the following steps.:
 - Open your CLI application of choice and change the current working directory to the location where you want the cloned directory to be created.
 - Type git clone, and then paste the previously copied URL to create the clone
 
-## Main Data Analysis and Machine Learning Libraries
+## Tools & Technologies
 
-- Here you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+### Main Data Analysis and Machine Learning Libraries
+
+- [NumPy](https://numpy.org/) for converting images to an array
+- [Pandas](https://pandas.pydata.org/) for creating dataframes
+- [Seaborn](https://seaborn.pydata.org/) for data visualization
+- [Matplotlib](https://matplotlib.org/) for data visualization
+- [Plotly](https://plotly.com/python/) for data visualization
+- [TensorFlow](hhttps://www.tensorflow.org/api_docs) for implementing best practices in data automation, model tracking, performance monitoring
+- [Scikit-learn](https://scikit-learn.org/) for image classification
+
+### Platforms
+
+- [Kaggle](https://www.kaggle.com/) for the cherry leaf image dataset
+- [GitHub](https://github.com/) for secure onlin code storage
+- [Codeanywhere](https://codeanywhere.com/) as a cloud-based IDE for development
+- [Jupyter](https://jupyter.org/) for the project's CRISP-DM workflow and development
+- [Streamlit](https://streamlit.io/) for the project's development
+- [Heroku](https://en.wikipedia.org/wiki/Heroku) for dashboard development
+
+### Languages
+
+- [Python](https://www.python.org/) for the app development 
+- [Markdown](https://www.markdownguide.org/) for documentation, Jupyter notebooks and dashboard
 
 ## Credits
 
