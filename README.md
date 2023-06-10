@@ -24,29 +24,47 @@ To save time in this process, the IT team suggested an ML system that detects in
 ## Hypothesis and how to validate?
 
 ### **Hypothesis 1**
+
 We suspect cherry leaves infected with powdery mildew have clear marks/signs, that can visually differentiate, from a healthy leaf.
 
 ### **Hypothesis 1 - Validation**
+
 By computing the average images for healthy and powdery mildew infected cherry leaves and displaying a comparison, we can visually check for differences in the leaves.
 Creating an image montage provides further visualisation of healthy and infected cherry leaves.
-Although images in the montage and the average variability and 
+Although images in the montage and the average variability and
 difference of the two images do present visual distinctions - infected leaves have more white stripes across the center of the leaf whereas healthy ones are a more opaque green - when plotting the difference image of the two we notice no patterns where we could intuitively differentiate one from another.
 
 ### **Hypothesis 2**
+
 We suspect that an image classification model can be used to predict whether a leaf in a given image is healthy or infected with powdery mildew.
 
 ### **Hypothesis 2 - Validation**
+
 By training the image classification model using multi-class classification and a portion of the dataset we are able to predict the health of one or more leaf images at a time with 93% accuracy on the tested data set.
 
 ### **Hypothesis 3**
+
 We suspect that reducing the size of the images in the dataset will allow the model to train faster without compromising the accuracy of prediction to an unsatisfactory level.
 
 ### **Hypothesis 3 - Validation**
+
 Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels allowed the model to train over 80% faster, completing each epoch in approximately 40 seconds as opposed to approximately 240 seconds with the original image size. However, the quality of the images was compromised and the model was overfitting, which hinders the accuracy of prediction on unseen data. Due to this, the model was trained with images at the original S256 x 256 pixels size.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
-- List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+**Business Requirement 1 - Data Visualization**
+
+- As a client, I want a dashboard I can navigate intuitively so that I can find and view the study and image display.
+- As a client, I want to view the average image and variability for healthy and powdery mildew infected leaves in the dataset so that I can understand if their distinctions.
+- As a client, I want to view an image montage of healthy and infected leaf images in the dataset so that I can view the visual differences between the two.
+
+**Business Requirement 2 - Image Prediction**
+
+- As a client, I want an image classification machine learning model with an accuracy of at least 85%, to predict whether a given image of a leaf is healthy or infected, so that I can identify which plants require fungicide treatment.
+- As a client, I want to upload multiple images for prediction at once so that I can quickly identify which plants require fungicide treatment.
+- As a client, I want the probability metrics to be visibly displayed so that I can understand the accuracy of the prediction.
+- As a client, I want to download a report of the prediction so that I can save it locally for easy access at a later date.
+- As a client, I want to view the performance metrics of the image classification model so that I can further understand it's accuracy levels.
 
 ## ML Business Case
 
