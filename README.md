@@ -68,7 +68,13 @@ Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels all
 
 ## ML Business Case
 
-- In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+- We want a ML model to predict if a cherry lead is infected with powdery mildew or not, based on image data provided by the client. It is a supervised model, a multi-class(2), single-label, classification model.
+- Our ideal outcome is provide Farmy & Foods with a faster and reliable diagnostic on if a given leaf is infected or not with powdery mildew.
+- The model success metrics are:
+  - Accuracy of 85% or above on the test set.
+- The model output is defined as a flag, indicating if the leaf is infected with powdery mildew or not and the associated probability of being infected or not. Farmy & Foods employees will take photos of the leaves and upload them to the App. The prediction is made on the fly (not in batches).
+- Heuristics: The current diagnostic requires a manual process inspection which takes around 30 minutes per tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. This process is costly due to the time taken in manual inspection and leaves room to produce inaccurate diagnostics due to human errors.
+- The training data to fit the model was provided by the client, Farmy & Foods and is available on [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). This dataset contains 4208 images, 2104 healthy leaf images and 2104 infected ones divided into their respective subfolders.
 
 ## Dashboard Design
 
