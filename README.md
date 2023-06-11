@@ -72,7 +72,6 @@ Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels all
 - By calculating the mean for the healthy and infected average images, the difference between the two can be visualized and found on the Leaf Visualizer page of the live App.
 - Also found on the Leaf Visualizer page, users have the ability to create an image montage of healthy or infected cherry lead images.
 
-
 ### Business Requirement 2 - Image Prediction
 
 **User Stories**
@@ -86,8 +85,8 @@ Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels all
 **Implementation**
 
 - The image classification model was created in the Modelling and Evaluation notebook and when evaluated on the test dataset returns an accuracy level of 93%.
-By uploading an image of a leaf the client will receive an instant diagnostic on the leaf's health.
-- The upload widget, which can be found on the Mildew Detector page of the live App, accepts multiple images at once up to a size of 200MB. 
+  By uploading an image of a leaf the client will receive an instant diagnostic on the leaf's health.
+- The upload widget, which can be found on the Mildew Detector page of the live App, accepts multiple images at once up to a size of 200MB.
 - Alongside the prediction, the probability metrics are displayed in an interactive bar chart which provides the percentage likelihood of the leaf belonging to each label (healthy or unhealthy).
 - Once a prediction has been generated, the client has the option to download the report and save locally via the "Download Report" link on the Mildew Detector page.
 - Using Pandas, Seaborn, Matplotlib and ScikitLearn, information on dataset distribution and the performance of the model is plotted and displayed on the ML Performance Metrics page of the live App.
@@ -103,6 +102,29 @@ By uploading an image of a leaf the client will receive an instant diagnostic on
 - The training data to fit the model was provided by the client, Farmy & Foods and is available on [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). This dataset contains 4208 images, 2104 healthy leaf images and 2104 infected ones divided into their respective subfolders.
 
 ## Model Creation
+
+For the model, a Convolutional Neural Network (CNN) was used to address the requirement of an image classification system.
+
+It consists of:
+
+- **Batch Size**: the batch size was initially set to 32 as this is the general rule of thumb, however this presented overfitting so the final model trained on a reduced batch size of 16
+- **2D convolutional layers**: most commonly used for spatial convolution over images
+- **Pooling layers**: placed after each Conv2D layer, these create down sampled feature maps which provide a summarized version of the features detected in the input
+- **Dense Layer**: The model was initially trained with 128 nodes in the dense layer, however too many nodes can result in overfitting as was observed in this case. To reduce the risk of overfitting, the final model trained with 64 nodes in the dense layer.
+- **Dropout Rate**: after selecting Adagrad as the optimizer, the dropout rate was lowered to 0.2 to prevent the model underfitting.
+- **Activation**: the model was first trained using Sigmoid for binary classification before switching to Softmax for multi-class (2) classification. This allows for display of probability metrics to the client alongside the diagnostic prediction
+- **Optimizer**: the model was initially trained using Adam as an optimizer, however this resulted in overfitting despite a high dropout rate of 0.5. The final iteration of the model uses Adagrad which shows a normal learning rate when comparing the accuracy and loss of the train and validation datasets.
+
+### Model Iterations
+
+The model underwent multiple iterations in order to ascertain the best batch size, number of filters in each layer, number of nodes, dropout rate, activation and optimizer.
+
+The first iteration, with a batch size of 32, 128 nodes in the dense layer, Sigmoid as the activation, Adam for the optimizer and a 0.5 dropout rate, when evaluated with a classification report, shows results which look to good to be true, indicating the model is overfitting. 
+
+![model version 1 classification report](documentation/model_versions/classification_report_v1.png)
+
+After a number of iterations in which one of batch size, nodes in dense layer, activation function or optimizer were altered for comparison to the first model version, changing the optimizer to Adagrad helped the model avoid overfitting most significantly alongside reducing batch size and number of nodes. Using Softmax also allowed for faster model training time per epoch, however, the precision metric for powdery mildew infected leaves was quite low. 
+
 
 ## Dashboard Design
 
@@ -206,11 +228,23 @@ To make a copy of the GitHub repository to use on your own account, you can fork
 
 ### Content
 
-- [Cherry Leaves Dataset](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves) - used for visualization, model training and prediction
+- [Kaggle - Cherry Leaves Dataset](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves) for data visualization, model training and prediction
+- [Wikipedia - Powdery Mildew](https://en.wikipedia.org/wiki/Powdery_mildew) for project summary page on dashboard
+- [RHS - Powdery Mildews](https://www.rhs.org.uk/disease/powdery-mildews) for project summary page on dashboard
+- [UCIPM - Powdery Mildew on Vegetables](https://en.wikipedia.org/wiki/Powdery_mildew) for project summary page on dashboard
+- [Machine Learning Mastery - A Gentle Introduction to Pooling Layers for Convolutional Neural Networks](https://machinelearningmastery.com/pooling-layers-for-convolutional-neural-networks/) for pooling definition in Model Creation section of the ReadMe
 
 ### Code
 
-- [Code Institute Walkthrough Project 1](https://codeinstitute.net/) - used for the Data Visualization, Data Preparation and Modelling and Evaluation notebooks as well as the Streamlit dashboard
+- [Code Institute - Milestone Project Mildew Detection in Cherry Leaves](https://github.com/Code-Institute-Solutions/milestone-project-mildew-detection-in-cherry-leaves) as the template for the project and project ReadMe structure and business requirements
+- [Code Institute - Walkthrough Project 1](https://codeinstitute.net/) to structure the project for the Data Visualization, Data Preparation and Modelling and Evaluation notebooks as well as the Streamlit dashboard
+- [cla-cif - Cherry Powdery Mildew Detector](https://github.com/cla-cif/Cherry-Powdery-Mildew-Detector) for inspiration on model training and for plotting the confusion matrix in Modelling and Evaluation notebook
+- [Towards Data Science - Convolutional Neural Networks, Explained](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939) for model fitting and training and explanation in the Model Creation section of the ReadMe
+- [Dataaspirant - Difference between Softmax and Sigmoid](https://dataaspirant.com/difference-between-softmax-function-and-sigmoid-function/) for model training in Modelling and Evaluation notebook and for explanation in the Model Creation section of the ReadMe
+- [Baeldung - Relation Between Learning Rate and Batch Size](https://www.baeldung.com/cs/learning-rate-batch-size) for determining the best batch size for the model to train with
+- [Dataconomy - The touchstone of machine learning: Epoch](https://dataconomy.com/2022/08/19/what-is-an-epoch-in-machine-learning/) for determining the best number of epochs
+- [Towards AI - Impact of Optimizers in Image Classifiers](https://towardsai.net/p/l/impact-of-optimizers-in-image-classifiers) for information on the best optimizers to us in model fitting and training
+- [Stack Overflow - How to Choose Nodes for Dense Layer](https://stackoverflow.com/questions/62484768/how-to-choose-the-number-of-units-for-the-dense-layer-in-the-convoluted-neural-n) - for determining the best number of nodes for the dense layer of the CNN
 
 ## Acknowledgements
 
