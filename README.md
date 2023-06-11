@@ -1,7 +1,8 @@
 # Cherry Leaf Mildew Detector
 
-The Cherry Leaf Mildew Detector is a Machine Learning image analysis system to predict the presence of
-powdery mildew on cherry tree leaves. It has been developed for Farmy & Foods, an agricultural company who are facing challenges with their cherry plantations presenting powdery mildew - a fungal disease that affects a wide range of plants.
+The Cherry Leaf Mildew Detector is a Machine Learning image analysis system to predict the presence of powdery mildew on cherry tree leaves. 
+
+It has been developed for Farmy & Foods, an agricultural company who are facing challenges with their cherry plantations presenting powdery mildew - a fungal disease that affects a wide range of plants.
 
 View the live version of the app [here](https://kk-mildew-detector.herokuapp.com/)
 
@@ -187,11 +188,13 @@ The ML Performance Metrics page provides a detailed analysis of the distribution
 
 ## Bugs
 
-### Fixed
+### Fixed Bugs
 
-When using the trained model to predict on new data, the result would consistently be the opposite of what it should at a very high accuracy, leading me to believe the model was working correctly but the labels had somehow switched around. This was due to the target map number having not been updated from [0] to [1] in the "Predict class probabilities" code at the end of the Modelling and Evaluation notebook when switching from binary classification with Sigmoid to multi-class classification with Softmax
+When using the trained model to predict on new data, the result would consistently be the opposite of what it should at a very high accuracy, leading me to believe the model was working correctly but the labels had somehow switched around. This was due to the target map number having not been updated from [0] to [1] in the "Predict class probabilities" code at the end of the Modelling and Evaluation notebook when switching from binary classification with Sigmoid to multi-class classification with Softmax.
 
-### Unfixed
+When deploying the project to Heroku the initial build failed as the Heroku Stack was set to 22, which was incompatible. To fix this, I logged into the Heroku CLI and updated the Heroku Stack to 20 which allowed the app to deploy successfully.
+
+### Unfixed Bugs
 
 There are no remaining unfixed bugs I am aware of.
 
@@ -204,7 +207,7 @@ The App live link is: https://kk-mildew-detector.herokuapp.com/
 The project was deployed to Heroku using the following steps.
 
 1. Log in to your Heroku account in the Command Line Interface(CLI) of your chosen IDE
-2. Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes)
+2. Set the runtime.txt Python version to a [Heroku-20 stack](https://devcenter.heroku.com/articles/python-support#supported-runtimes)
 3. Visit the Heroku webpage and log in to your account
 4. Click the "New" button to create a new app and name it
 5. Navigate to the Deploy tab and select GitHub as the deployment method
