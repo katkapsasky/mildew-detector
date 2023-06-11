@@ -44,7 +44,7 @@ We suspect that an image classification model can be used to predict whether a l
 
 By training the image classification model using multi-class classification and a portion of the dataset we are able to predict the health of one or more leaf images at a time with 93% accuracy on the tested data set.
 
-![model evaluation on test set](documentation/dashboard/diff_avg_variability_images.png)
+![model evaluation on test set](documentation/dashboard/test_set_evaluation.png)
 
 ### **Hypothesis 3**
 
@@ -56,19 +56,41 @@ Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels all
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
-**Business Requirement 1 - Data Visualization**
+### Business Requirement 1 - Data Visualization
+
+**User Stories**
 
 - As a client, I want a dashboard I can navigate intuitively so that I can find and view the study and image display.
-- As a client, I want to view the average image and variability for healthy and powdery mildew infected leaves in the dataset so that I can understand if their distinctions.
+- As a client, I want to view the average image and variability for healthy and powdery mildew infected leaves in the dataset so that I can understand their distinctions.
+- As a client, I want to view the difference between the average image of a healthy leaf and of an infected one so that I can understand if their is a noticeable difference between the two.
 - As a client, I want to view an image montage of healthy and infected leaf images in the dataset so that I can view the visual differences between the two.
 
-**Business Requirement 2 - Image Prediction**
+**Implementation**
+
+- Streamlit was used to create a client dashboard comprising of 6 pages and a collapsible menu for intuitive navigation.
+- By using TensorFlow to load the dataset images into an array in the Data Visualization notebook, the average and variability for all images is displayed and can be found on the Leaf Visualizer page of the live App.
+- By calculating the mean for the healthy and infected average images, the difference between the two can be visualized and found on the Leaf Visualizer page of the live App.
+- Also found on the Leaf Visualizer page, users have the ability to create an image montage of healthy or infected cherry lead images.
+
+
+### Business Requirement 2 - Image Prediction
+
+**User Stories**
 
 - As a client, I want an image classification machine learning model with an accuracy of at least 85%, to predict whether a given image of a leaf is healthy or infected, so that I can identify which plants require fungicide treatment.
 - As a client, I want to upload multiple images for prediction at once so that I can quickly identify which plants require fungicide treatment.
 - As a client, I want the probability metrics to be visibly displayed so that I can understand the accuracy of the prediction.
 - As a client, I want to download a report of the prediction so that I can save it locally for easy access at a later date.
 - As a client, I want to view the performance metrics of the image classification model so that I can further understand it's accuracy levels.
+
+**Implementation**
+
+- The image classification model was created in the Modelling and Evaluation notebook and when evaluated on the test dataset returns an accuracy level of 93%.
+By uploading an image of a leaf the client will receive an instant diagnostic on the leaf's health.
+- The upload widget, which can be found on the Mildew Detector page of the live App, accepts multiple images at once up to a size of 200MB. 
+- Alongside the prediction, the probability metrics are displayed in an interactive bar chart which provides the percentage likelihood of the leaf belonging to each label (healthy or unhealthy).
+- Once a prediction has been generated, the client has the option to download the report and save locally via the "Download Report" link on the Mildew Detector page.
+- Using Pandas, Seaborn, Matplotlib and ScikitLearn, information on dataset distribution and the performance of the model is plotted and displayed on the ML Performance Metrics page of the live App.
 
 ## ML Business Case
 
