@@ -187,9 +187,11 @@ The ML Performance Metrics page provides a detailed analysis of the distribution
 
 ## Bugs
 
-### Fixed Bugs
+### Fixed
 
-### Unfixed Bugs
+When using the trained model to predict on new data, the result would consistently be the opposite of what it should at a very high accuracy, leading me to believe the model was working correctly but the labels had somehow switched around. This was due to the target map number having not been updated from [0] to [1] in the "Predict class probabilities" code at the end of the Modelling and Evaluation notebook when switching from binary classification with Sigmoid to multi-class classification with Softmax
+
+### Unfixed
 
 There are no remaining unfixed bugs I am aware of.
 
