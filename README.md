@@ -119,12 +119,13 @@ It consists of:
 
 The model underwent multiple iterations in order to ascertain the best batch size, number of filters in each layer, number of nodes, dropout rate, activation and optimizer.
 
-The first iteration, with a batch size of 32, 128 nodes in the dense layer, Sigmoid as the activation, Adam for the optimizer and a 0.5 dropout rate, when evaluated with a classification report, shows results which look to good to be true, indicating the model is overfitting. 
+The first iteration, with a batch size of 32, 128 nodes in the dense layer, Sigmoid as the activation, Adam for the optimizer and a 0.5 dropout rate, when evaluated with a classification report, shows results which look to good to be true, indicating the model is overfitting.
 
 ![model version 1 classification report](documentation/model_versions/classification_report_v1.png)
 
-After a number of iterations in which one of batch size, nodes in dense layer, activation function or optimizer were altered for comparison to the first model version, changing the optimizer to Adagrad helped the model avoid overfitting most significantly alongside reducing batch size and number of nodes. Using Softmax also allowed for faster model training time per epoch, however, the precision metric for powdery mildew infected leaves was quite low. 
+After a number of iterations in which one of batch size, nodes in dense layer, activation function or optimizer were altered for comparison to the first model version, changing the optimizer to Adagrad helped the model avoid overfitting most significantly alongside reducing batch size and number of nodes. Using Softmax also allowed for faster model training time per epoch, however, the precision metric for powdery mildew infected leaves was quite low at 89%. To remedy this, the dropout rate for the final model version was lessened to 0.2.
 
+![model version 2 classification report](documentation/model_versions/classification_report_v2.png)
 
 ## Dashboard Design
 
