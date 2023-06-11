@@ -52,7 +52,7 @@ We suspect that reducing the size of the images in the dataset will allow the mo
 
 ### **Hypothesis 3 - Validation**
 
-Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels allowed the model to train over 80% faster, completing each epoch in approximately 40 seconds as opposed to approximately 240 seconds with the original image size. However, the quality of the images was compromised and the model was overfitting, which hinders the accuracy of prediction on unseen data. Due to this, the model was trained with images at the original S256 x 256 pixels size.
+Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels allowed the model to train over 80% faster, completing each epoch in approximately 40 seconds as opposed to approximately 240 seconds with the original image size. However, the quality of the images was compromised and the model was overfitting, which hinders the accuracy of prediction on unseen data. Due to this, the model was trained with images at the original 256 x 256 pixels size.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
@@ -70,7 +70,7 @@ Resizing the images in the dataset from 256 x 256 pixels to 100 x 100 pixels all
 - Streamlit was used to create a client dashboard comprising of 6 pages and a collapsible menu for intuitive navigation.
 - By using TensorFlow to load the dataset images into an array in the Data Visualization notebook, the average and variability for all images is displayed and can be found on the Leaf Visualizer page of the live App.
 - By calculating the mean for the healthy and infected average images, the difference between the two can be visualized and found on the Leaf Visualizer page of the live App.
-- Also found on the Leaf Visualizer page, users have the ability to create an image montage of healthy or infected cherry lead images.
+- Also found on the Leaf Visualizer page, users have the ability to create an image montage of healthy or infected cherry leaf images.
 
 ### Business Requirement 2 - Image Prediction
 
@@ -129,34 +129,61 @@ After a number of iterations in which one of batch size, nodes in dense layer, a
 
 ## Dashboard Design
 
-### Project Summary
+The Mildew Detector dashboard follows the same structure as the Malaria Detector for the Code Institute Walkthrough Project 1. It consists of 6 pages, accessible via a collapsible menu on the top left of the webpage.
+
+- **Project Summary**
+
+The Project Summary page provides some general information on powdery mildew and its effect on plants, as well as a description of the dataset content and the client's business requirements.
 
 ![project summary](documentation/dashboard/dashboard_summary.png)
 
-### Leaf Visualizer
+- **Leaf Visualizer**
+
+The Leaf Visualizer page answers business requirement 1 and is made up of three sections. The output for each section is displayed when a user clicks on the checkbox next to it.
 
 ![leaf visualizer](documentation/dashboard/dashboard_visualizer.png)
-![average variability of images](documentation/dashboard/avg_variability_images.png)
-![difference in average images](documentation/dashboard/diff_avg_variability_images.png)
-![image montage - healthy](documentation/dashboard/img_montage_healthy.png)
-![image montage - infected](documentation/dashboard/img_montage_infected.png)
 
-### Mildew Detector
+1. The average and variability of healthy and infected leaf images from the dataset
+   ![average variability of images](documentation/dashboard/avg_variability_images.png)
 
+2. The difference in average images of healthy and infected leaf images
+   ![difference in average images](documentation/dashboard/diff_avg_variability_images.png)
+
+3. An image montage of healthy or infected leaves
+   ![image montage - healthy](documentation/dashboard/img_montage_healthy.png)
+   ![image montage - infected](documentation/dashboard/img_montage_infected.png)
+
+- **Mildew Detection**
+
+The Mildew Detection page answers business requirement 2. There is an upload widget which allows users to upload up to 200MB of leaf images at a time in a JPG format for prediction.
 ![mildew detector](documentation/dashboard/dashboard_detector.png)
+
+Once the image is uploaded the user will receive an instant prediction, along with probability metrics and a link to download the report.
 ![mildew detector analysis](documentation/dashboard/mildew_detector_analysis.png)
 
-### Project Hypotheses
+- **Project Hypotheses**
 
+The Project Hypothesis page provides detailed information on the three hypotheses which were considered in the development of the project, and how these were validated.
 ![hypotheses](documentation/dashboard/dashboard_hypotheses.png)
 
-### ML Performance Metrics
+- **ML Performance Metrics**
 
-![ml performance metrics](documentation/dashboard/dashboard_metrics.png)
-![pie chart](documentation/dashboard/pie_chart.png)
-![confusion matrix](documentation/dashboard/confusion_matrix.png)
-![learning curves](documentation/dashboard/learning_curves.png)
-![test set evaluation](documentation/dashboard/test_set_evaluation.png)
+The ML Performance Metrics page provides a detailed analysis of the distribution of data and performance of the model.
+
+1. Bar chart of data distribution across train, validation and test sets
+   ![ml performance metrics](documentation/dashboard/dashboard_metrics.png)
+
+2. Pie chart of data distribution across train, validation and test sets
+   ![pie chart](documentation/dashboard/pie_chart.png)
+
+3. Confusion matrix to display true and false positive and negative predictions for both healthy and infected leaves
+   ![confusion matrix](documentation/dashboard/confusion_matrix.png)
+
+4. Model learning curves for accuracy and loss of training vs validation data
+   ![learning curves](documentation/dashboard/learning_curves.png)
+
+5. Evaluation of the model against the test dataset
+   ![test set evaluation](documentation/dashboard/test_set_evaluation.png)
 
 ## Bugs
 
